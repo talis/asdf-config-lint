@@ -13,18 +13,7 @@ mkdir -p "$ASDF_DOWNLOAD_PATH"
 
 platform=$(uname)
 
-architecture=""
-case $(uname -m) in
-  i386) architecture="386" ;;
-  i686) architecture="386" ;;
-  x86_64) architecture="amd64" ;;
-  armv*) architecture="arm" ;;
-  aarch64) architecture="arm64" ;;
-esac
-
-if [ "${architecture}" = "" ]; then
-  architecture="$(uname -m)"
-fi
+architecture="$(uname -m)"
 
 # Fail if platform is Darwin and architecture is arm64
 if [ "$platform" = "Darwin" ] && [ "$architecture" = "arm64" ]; then
