@@ -40,7 +40,7 @@ asdf install config-lint latest
 asdf global config-lint latest
 
 # Now config-lint commands are available
-config-lint --help
+config-lint -h
 ```
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
