@@ -31,8 +31,7 @@ if [ "$platform" = "Darwin" ] && [ "$architecture" = "arm64" ]; then
   fail "asdf-$TOOL_NAME does not support arm64 on macOS"
 fi
 
-release_filename="config-lint_${platform}_${architecture}.tar.gz"
-release_file="$ASDF_DOWNLOAD_PATH/${release_filename}"
+release_file="config-lint_${platform}_${architecture}.tar.gz"
 
 # Download tar.gz file to the download directory
 download_release "$ASDF_INSTALL_VERSION" "$release_file"
