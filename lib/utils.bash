@@ -36,7 +36,7 @@ download_release() {
   local version filename url
   version="$1"
   filename="$2"
-  
+
   url="$GH_REPO/releases/download/v${version}/${filename}"
 
   echo "* Downloading $TOOL_NAME release $version..."
