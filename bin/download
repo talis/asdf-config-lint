@@ -4,14 +4,35 @@ set -euo pipefail
 
 current_script_path=${BASH_SOURCE[0]}
 plugin_dir=$(dirname "$(dirname "$current_script_path")")
+TOOL_NAME="config-lint"
 
 # shellcheck source=../lib/utils.bash
 source "${plugin_dir}/lib/utils.bash"
 
 mkdir -p "$ASDF_DOWNLOAD_PATH"
 
-# TODO: Adapt this to proper extension and adapt extracting strategy.
-release_file="$ASDF_DOWNLOAD_PATH/$TOOL_NAME-$ASDF_INSTALL_VERSION.tar.gz"
+platform=$(uname)
+
+architecture=""
+case $(uname -m) in
+  i386) architecture="386" ;;
+  i686) architecture="386" ;;
+  x86_64) architecture="amd64" ;;
+  armv*) architecture="arm" ;;
+  aarch64) architecture="arm64" ;;
+esac
+
+if [ "${architecture}" = "" ]; then
+  architecture="$(uname -m)"
+fi
+
+# Fail if platform is Darwin and architecture is arm64
+if [ "$platform" = "Darwin" ] && [ "$architecture" = "arm64" ]; then
+  fail "asdf-$TOOL_NAME does not support arm64 on macOS"
+fi
+
+release_filename="config-lint_${platform}_${architecture}.tar.gz"
+release_file="$ASDF_DOWNLOAD_PATH/${release_filename}"
 
 # Download tar.gz file to the download directory
 download_release "$ASDF_INSTALL_VERSION" "$release_file"

@@ -2,7 +2,6 @@
 
 # asdf-config-lint [![Build](https://github.com/talis/asdf-config-lint/actions/workflows/build.yml/badge.svg)](https://github.com/talis/asdf-config-lint/actions/workflows/build.yml) [![Lint](https://github.com/talis/asdf-config-lint/actions/workflows/lint.yml/badge.svg)](https://github.com/talis/asdf-config-lint/actions/workflows/lint.yml)
 
-
 [config-lint](https://github.com/stelligent/config-lint) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
@@ -58,4 +57,4 @@ Contributions of any kind welcome! See the [contributing guide](contributing.md)
 
 # License
 
-See [LICENSE](LICENSE) © [Stephen Robinson](https://github.com/talis/)
+See [LICENSE](LICENSE) © [Talis](https://github.com/talis/)
